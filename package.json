@@ -1,7 +1,9 @@
 {
-  "name": "deeply-kuiper",
-  "type": "module",
-  "version": "0.0.1",
+  "name": "cv-alejandro-llorente",
+  "version": "1.0.0",
+  "private": true,
+  "author": "@alejandro_llorente",
+  "homepage": "https://cv.alejandrollorente.com",
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
@@ -11,5 +13,9 @@
   },
   "dependencies": {
     "astro": "^3.0.8"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ALLC84/cv-astro"
   }
 }
