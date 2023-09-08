@@ -1,0 +1,64 @@
+---
+import { Image } from 'astro:assets';
+import CallIcon from '@assets/images/call_white.svg';
+import EmailIcon from '@assets/images/email_white.svg';
+import LinkIcon from '@assets/images/link_white.svg';
+
+const contactData = {
+  call: {
+    phone: 618377176,
+    title: 'Lláme'
+  },
+  mail: {
+    email: 'alejandro22cuba@hotmail.com',
+    title: 'Envía un correo'
+  },
+  linkedin: {
+    url: 'https://www.linkedin.com/in/alejandro-llorente-cardenache-b7ba40197/',
+    title: 'Linkedin'
+  }
+}
+---
+
+<ul v-if="contactData" class="list">
+  <li class="item">
+    <a class="link" href={`tel:+${contactData.call.phone}`}>
+      <Image class="img" src={CallIcon} alt="call icon svg" width="20" height="20" />
+      { contactData.call.title }
+    </a>
+  </li>
+  <li class="item">
+    <a class="link" href={`mailto:${contactData.mail.email}`}>
+      <Image class="img" src={EmailIcon} alt="email icon svg" width="20" height="20" />
+      { contactData.mail.title }
+    </a>
+  </li>
+  <li class="item">
+    <a class="link" href={contactData.linkedin.url} target="_blanck" rel="noreferrer">
+      <Image class="img" src={LinkIcon} alt="link icon svg" width="20" height="20" />
+      { contactData.linkedin.title }
+    </a>
+  </li>
+</ul>
+
+<style>
+.list .item {
+  margin-bottom: 0.5rem;
+}
+.link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--color-light-gray);
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+.link:hover {
+  color: var(--color-gray);
+}
+.img {
+  margin-right: 0.5rem;
+  width: 20px;
+  height: 20px;
+}
+</style>

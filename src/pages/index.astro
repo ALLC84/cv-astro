@@ -1,0 +1,15 @@
+---
+import '@styles/reset.css';
+import Layout from '@layouts/main.astro';
+import Nav from '@components/Nav/index.astro';
+import Aside from '@components/Aside/index.astro';
+import Main from '@components/Main/index.astro';
+import Footer from '@components/Footer/index.astro';
+---
+
+<Layout title="CV - Alejandro Llorente">
+	<Nav slot="nav"/>
+	<Aside slot="aside"/>
+	<Main slot="main"/>
+	<Footer slot="footer"/>
+</Layout>

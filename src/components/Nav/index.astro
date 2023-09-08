@@ -1,0 +1,43 @@
+---
+import { Image } from 'astro:assets';
+import DownloadButton from '@assets/images/download-button.svg';
+import GithubIcon from '@assets/images/github.svg';
+---
+
+<section class="actions">
+  <a
+    href="https://github.com/ALLC84/cv-vuejs"
+    target="_blanck"
+    rel="noreferrer"
+  >
+    <Image
+      class="img"
+      src={GithubIcon}
+      alt="icon github.svg"
+      width="20"
+      height="20"
+    />
+  </a>
+  <a target="_blanck" rel="noreferrer" download>
+    <Image
+      class="img"
+      src={DownloadButton}
+      alt="icon download"
+      width="20"
+      height="20"
+    />
+  </a>
+</section>
+
+<style>
+  .actions {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .actions .img {
+    width: 20px;
+    height: 20px;
+    margin-left: 0.8rem;
+  }
+</style>

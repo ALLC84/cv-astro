@@ -1,0 +1,71 @@
+---
+import { Image } from 'astro:assets';
+import AstroIcon from '@assets/images/astro.svg'
+
+const leftSection = {
+  name: 'Alejandro LLorente',
+  year: new Date().getFullYear(),
+};
+
+const rightSection = {
+  description: 'Creado utilizando, ',
+  tecnologies: [
+    {
+      name: 'Astro',
+      icon: AstroIcon,
+      url: 'https://astro.build/'
+    }
+  ],
+};
+---
+
+<footer class="footer">
+  <div class="leftSection">
+    <span> © {leftSection.year},</span>
+    <span>
+      {leftSection.name}
+    </span>
+  </div>
+  <div class="rightSection">
+    <span class="description">
+      {rightSection.description}
+    </span>
+    {
+      rightSection.tecnologies.map(tecnologie => (
+        <a href={tecnologie.url} class="link" target="_blanck" rel="noreferrer">
+          <Image
+            src={tecnologie.icon}
+            alt={tecnologie.name}
+            width="16"
+            height="16"
+          />
+        </a>
+      ))
+    }
+  </div>
+</footer>
+
+<style>
+  .footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+    color: $color-dark-gray;
+  }
+
+  .rightSection {
+    display: flex;
+    align-items: center;
+  }
+
+  .description {
+    margin-right: 0.5rem;
+  }
+
+  .description .link .img {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
+  }
+</style>

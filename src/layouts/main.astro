@@ -1,0 +1,108 @@
+---
+import { ViewTransitions } from 'astro:transitions';
+import '@styles/variables.css';
+
+interface Props {
+  title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="description"
+      content="CV de Alejandro Llorente, desarrollador web especializado en front end."
+    />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <ViewTransitions />
+  </head>
+  <body>
+    <div class="layout fadeIn">
+      <nav class="nav">
+        <slot name="nav" />
+      </nav>
+      <aside class="aside">
+        <slot name="aside" />
+      </aside>
+      <main class="main">
+        <slot name="main" />
+        <footer class="footer">
+          <slot name="footer" />
+        </footer>
+      </main>
+    </div>
+  </body>
+</html>
+
+<style>
+  .layout {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    font-size: var(--font-size-content);
+    max-width: var(--layout-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: calc(var(--padding-content) * 2);
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+  }
+
+  .fadeIn {
+    animation: fadeIn 1s ease-in-out forwards;
+  }
+
+  .aside,
+  .main {
+    padding: var(--padding-content);
+  }
+
+  .nav {
+    min-width: 100%;
+    padding: calc(var(--padding-content) / 2) var(--padding-content);
+  }
+
+  .aside {
+    flex-grow: 1;
+    flex-basis: calc(30% - calc(var(--padding-content) * 2));
+    min-width: var(--aside-min-width);
+    background-color: var(--color-bg-sidebar);
+  }
+
+  .main {
+    flex-grow: 1;
+    flex-basis: calc(70% - calc(var(--padding-content) * 4));
+    background-color: var(--color-bg-content);
+  }
+
+  .footer {
+    padding-top: var(--padding-content);
+  }
+
+  @media (min-width: 896px) {
+    .aside {
+      border-top-left-radius: var(--layout-border-radius);
+      border-bottom-left-radius: var(--layout-border-radius);
+    }
+    .main {
+      border-top-right-radius: var(--layout-border-radius);
+      border-bottom-right-radius: var(--layout-border-radius);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+</style>

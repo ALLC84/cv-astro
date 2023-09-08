@@ -1,0 +1,131 @@
+---
+import TitleSection from '@components/TitleSection/index.astro';
+import PartingLine from '@components/PartingLine/index.astro';
+import Avatar from './Avatar.astro';
+import Contact from './Contact.astro';
+import SkillLevel from './SkillLevel.astro';
+
+const colorText = '#a0aec0',
+  titleMarginTop = 1.8;
+
+const skillsData = [
+  {
+    name: 'HTML',
+    level: 4,
+  },
+  {
+    name: 'CSS',
+    level: 4,
+  },
+  {
+    name: 'SCSS',
+    level: 3,
+  },
+  {
+    name: 'JAVASCRIPT',
+    level: 4,
+  },
+  {
+    name: 'TYPESCRIPT',
+    level: 3,
+  },
+];
+
+const skillsTechData = [
+  {
+    name: 'VUE',
+    level: 4,
+  },
+  {
+    name: 'VUEX',
+    level: 4,
+  },
+  {
+    name: 'REACT',
+    level: 4,
+  },
+  {
+    name: 'REACT_NATIVE',
+    level: 3,
+  },
+  {
+    name: 'REDUX',
+    level: 4,
+  },
+  {
+    name: 'GIT - GITHUB',
+    level: 4,
+  },
+]
+
+const languageData = [
+  {
+    name: 'ESPAÑOL',
+    level: 5,
+  },
+  {
+    name: 'INGLES',
+    level: 1,
+  },
+]
+
+const dataContent = [
+  {
+    name: 'HABILIDADES',
+    skills: skillsData,
+  },
+  {
+    name: 'TECNOLOGÍAS',
+    skills: skillsTechData,
+  },
+  {
+    name: 'LENGUAJES',
+    skills: languageData,
+  },
+];
+---
+
+<section>
+  <!--
+  |-----------------------------------------------
+  |  IMAGEN
+  |-----------------------------------------------
+  -->
+  <Avatar />
+
+  <!--
+  |-----------------------------------------------
+  |  CONTACTO
+  |-----------------------------------------------
+  -->
+  <TitleSection
+    text="CONTACTO"
+    color={colorText}
+    mt={titleMarginTop}
+    weight={600}
+    tag="h4"
+  />
+  <PartingLine weight={0.15} />
+  <Contact />
+</section>
+
+<!--
+|-----------------------------------------------
+|  HABILIDADES, TECNOLOGÍAS, LENGUAJES
+|-----------------------------------------------
+-->
+{
+  dataContent.map(section => (
+    <section>
+      <TitleSection
+        text={section.name}
+        color={colorText}
+        mt={titleMarginTop}
+        weight={600}
+        tag="h4"
+      />
+      <PartingLine weight={0.15} />
+      <SkillLevel skills={section.skills} />
+    </section>
+  ))
+}

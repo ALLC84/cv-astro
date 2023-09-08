@@ -1,0 +1,145 @@
+---
+import ModalStadyTitle from './Modal/index.astro';
+
+interface sectionInformationData {
+  title: string;
+  subtitle: string;
+  year: number;
+  url?: string;
+  image?: object;
+  alt?: string;
+}
+interface Props {
+  data: sectionInformationData[];
+  widthButton?: Boolean
+};
+
+const { data, widthButton = false } = Astro.props;
+const TEXT_BUTTON = {
+  showLess: 'Mostrar menos',
+  showMore: 'Mostrar mas'
+}
+---
+
+<!-- INFORMATION -->
+{
+  data.map((information, index) => (
+    <section>
+      <div class:list={['section', `section-${data[0].title}`, { 'no-display': index >= 3 }]}>
+        <div class="left">
+          <h4 class="title">
+            { information.url ? 
+              <a 
+                href={information.url} 
+                target="_blanck"
+                rel="noreferrer"
+              >
+                { information.title }
+              </a> 
+            : <span>
+                { information.title }
+              </span> 
+            }
+
+            {
+              information.image && <ModalStadyTitle
+                url={information.image}
+                alt={information.alt}
+              />
+            }
+
+          </h4>
+          <p class="subtitle">{ information.subtitle }</p>
+        </div>
+        <div class="right">{ information.year }</div>
+      </div>
+    </section>
+  ))
+}
+
+<!-- BUTTON -->
+{
+  widthButton && (
+  <div id={`button-${data[0].title}`} class="button">
+    { TEXT_BUTTON.showMore }
+  </div>
+  )
+}
+
+<script define:vars={{data, TEXT_BUTTON}}>
+  const button = document.getElementById(`button-${data[0].title}`);
+  const sections = document.querySelectorAll(`.section-${data[0].title}`);
+  
+
+  const showMore = () =>{
+    sections.forEach((section, index) => {
+      if (index >= 3) {
+        section.classList.toggle('no-display');
+      }
+    });
+
+    if (button.textContent === TEXT_BUTTON.showLess) {
+      button.textContent = TEXT_BUTTON.showMore
+    } else {
+      button.textContent = TEXT_BUTTON.showLess
+    }
+  }
+  if ( button ) {
+    button.addEventListener("click", showMore);
+  }
+</script>
+
+
+<style>
+.section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.8rem;
+  color: var(--black);
+  position: relative;
+}
+.left .title {
+  display: flex;
+  align-items: center;
+}
+.title a {
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  transition: all 0.3s ease;
+}
+.title a:hover {
+  color: var(--color-button-hover);
+}
+.title span {
+  font-weight: 600;
+  font-size: 1rem;
+}
+.subtitle {
+  font-size: 0.9rem;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.right {
+  color: $black;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+.button {
+  font-size: 0.9rem;
+  display: inline-block;
+  color: var(--color-button);
+  font-weight: 600;
+}
+.button:hover {
+  color: var(--color-button-hover);
+  cursor: pointer;
+}
+
+.no-display {
+  display: none;
+}
+</style>

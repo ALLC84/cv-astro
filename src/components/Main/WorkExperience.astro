@@ -1,0 +1,35 @@
+---
+import TitleSection from '@components/TitleSection/index.astro';
+import PartingLine from '@components/PartingLine/index.astro';
+import SectionInformation from './common/SectionInformation/index.astro'
+
+interface SectionWorkExperience {
+  title: string;
+  subtitle: string;
+  year: number;
+  url: string;
+};
+
+interface Props {
+  data: SectionWorkExperience[]
+};
+
+const { data } = Astro.props;
+const nameSection = 'Experiencia Laboral';
+---
+
+<section>
+  <header>
+    <TitleSection
+      tag="h3"
+      text={nameSection}
+      size={1.8}
+      weight={600}
+      mt={1.5}
+    />
+  </header>
+  <PartingLine weight={0.15} width={20} bg="rgb(49, 130, 206)" />
+  <div>
+    <SectionInformation data={data} widthButton={data.length > 3} />
+  </div>
+</section>

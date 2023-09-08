@@ -1,0 +1,37 @@
+---
+import TitleSection from '@components/TitleSection/index.astro'
+import PartingLine from '@components/PartingLine/index.astro';
+import SectionInformation from './common/SectionInformation/index.astro'
+
+interface SectionEducation {
+  title: string;
+  subtitle: string;
+  year: number;
+  image: object;
+  alt: string;
+};
+
+interface Props {
+  data: SectionEducation[];
+}
+
+const { data } = Astro.props;
+const nameSection = 'Educación'
+---
+
+<section>
+  <header>
+    <TitleSection
+      tag="h3"
+      text={nameSection}
+      size={1.8}
+      weight={600}
+      mt={1.5}
+    />
+  </header>
+  <PartingLine weight={0.15} width={20} bg="rgb(49, 130, 206)" />
+  <div>
+    <SectionInformation data={data} />
+  </div>
+</section>
+

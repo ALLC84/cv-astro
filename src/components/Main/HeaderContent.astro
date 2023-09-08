@@ -1,0 +1,40 @@
+---
+// import MediaQueries from '@helpers/MediaQueries'
+import TitleSection from '@components/TitleSection/index.astro';
+import PartingLine from '@components/PartingLine/index.astro';
+
+interface DataContact {
+  name: string;
+  profession: string;
+  about: string;
+}
+
+interface Props {
+  data: DataContact;
+}
+
+const { data } = Astro.props;
+
+// const { mobileExt } = MediaQueries(); // client:only
+
+---
+  
+<header class="header">
+  <!-- size={mobileExt ? 2.2 : 3.2} -->
+  <TitleSection
+    size={2.8}
+    weight={800}
+    text={data.name}
+  />
+
+  <PartingLine weight={0.15} width={20} bg="rgb(49, 130, 206)" />
+
+  <TitleSection
+    tag="h2"
+    text={data.profession}
+    weight={600}
+    mt={1}
+  />
+  
+  <p>{data.about}</p>
+</header>

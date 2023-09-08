@@ -1,0 +1,29 @@
+---
+import { Image } from 'astro:assets';
+import localImg from '@assets/images/imgabout.jpg';
+---
+
+<section class="wrapper">
+  <Image
+    class="avatar"
+    src={localImg}
+    alt="Avatar Alejandro Llorente"
+    width="200"
+    height="200"
+  />
+</section>
+
+<style>
+  .wrapper {
+    border: 2px solid #c4c4c4;
+    border-radius: 100%;
+    vertical-align: middle;
+    margin: calc(var(--padding-content) / 1.5) auto;
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+  }
+  .wrapper .avatar {
+    max-width: 100%;
+  }
+</style>
