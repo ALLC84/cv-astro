@@ -25,7 +25,7 @@ const TEXT_BUTTON = {
 {
   data.map((information, index) => (
     <section>
-      <div class:list={['section', `section-${data[0].title}`, { 'no-display': index >= 3 }]}>
+      <div class:list={['section', 'fadeIn', `section-${data[0].title}`, { 'no-display': index >= 3 }]}>
         <div class="left">
           <h4 class="title">
             { information.url ? 
@@ -140,6 +140,20 @@ const TEXT_BUTTON = {
 }
 
 .no-display {
+  opacity: 0;
   display: none;
+}
+
+.fadeIn {
+  animation: fadeIn 1s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 </style>

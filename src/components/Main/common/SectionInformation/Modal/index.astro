@@ -14,7 +14,7 @@ const TEXT_BUTTON = {
 
 <div class="modal">
   <div id={`button-${url.src}`} class="button">{TEXT_BUTTON.show}</div>
-  <Image id={`img-${url.src}`} src={url} alt={alt} class={'no-display'}/>
+  <Image id={`img-${url.src}`} src={url} alt={alt} class="fadeIn no-display"/>
 </div>
 
 <script define:vars={{url, TEXT_BUTTON}}>
@@ -42,6 +42,7 @@ const TEXT_BUTTON = {
     max-width: 100%;
     top: 1.6rem;
     left: 0;
+    transition: opacity .5s ease-in-out;
   }
   .modal img.no-display {
     display: none;
@@ -67,6 +68,19 @@ const TEXT_BUTTON = {
       max-width: 15rem;
       height: auto;
       left: 0.5rem;
+    }
+  }
+
+  .fadeIn {
+    animation: fadeIn .5s ease-in-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
     }
   }
 </style>
