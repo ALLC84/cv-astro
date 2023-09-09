@@ -1,0 +1,20 @@
+[
+  {
+    "title": "Conisel",
+    "subtitle": "Actualmente trabajando como desarrollador Frontend Vue.js",
+    "year": 2021,
+    "url": "https://www.conisel.com/"
+  },
+  {
+    "title": "Power Enterprise Electrical Corp.",
+    "subtitle": "Creado utilizando: Vue y DatoCMS",
+    "year": 2020,
+    "url": "https://tbpoweron.com/"
+  },
+  {
+    "title": "CentroCep",
+    "subtitle": "Creado utilizando: Wordpress con el theme Divi",
+    "year": 2018,
+    "url": "https://www.centrocep.es/"
+  }
+]

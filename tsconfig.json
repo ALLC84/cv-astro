@@ -8,6 +8,7 @@
       "@styles/*": ["src/styles/*"],
       "@assets/*": ["src/assets/*"],
       "@helpers/*": ["src/helpers/*"],
+      "@data/*": ["src/data/*"],
     }
   }
 }
