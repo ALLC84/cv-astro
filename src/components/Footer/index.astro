@@ -1,9 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 import AstroIcon from '@assets/images/astro.svg'
+import contactData from '@data/contact.js'
 
 const leftSection = {
-  name: 'Alejandro LLorente',
+  name: contactData.name,
   year: new Date().getFullYear(),
 };
 
@@ -22,7 +23,7 @@ const rightSection = {
 <footer class="footer">
   <div class="leftSection">
     <span> © {leftSection.year},</span>
-    <span>
+    <span class="name">
       {leftSection.name}
     </span>
   </div>
@@ -51,21 +52,21 @@ const rightSection = {
     justify-content: space-between;
     align-items: center;
     font-size: 0.8rem;
-    color: $color-dark-gray;
-  }
+    color: var(--color-dark-gray);
 
-  .rightSection {
-    display: flex;
-    align-items: center;
-  }
+    & .leftSection {
+      & .name {
+        margin-left: 0.5rem;
+      }
+    }
 
-  .description {
-    margin-right: 0.5rem;
-  }
+    & .rightSection {
+      display: flex;
+      align-items: center;
 
-  .description .link .img {
-    width: 16px;
-    height: 16px;
-    margin-right: 0.5rem;
+      & .description {
+        margin-right: 0.5rem;
+      }
+    }
   }
 </style>

@@ -20,15 +20,15 @@ const {
 } = Astro.props;
 
 const Element = `<${tag}
-  style="
-    font-size: ${size}rem;
-    font-weight: ${weight};
-    color: ${color};
-    margin-top: ${mt}rem;
-    margin-bottom: ${mb}rem;
-  ">
-    ${text}
-  </${tag}>`;
+style="
+  font-size: ${size}rem;
+  font-weight: ${weight};
+  color: ${color};
+  margin-top: ${mt}rem;
+  margin-bottom: ${mb}rem;
+">
+  ${text}
+</${tag}>`;
 ---
 
 <Fragment set:html={Element} />

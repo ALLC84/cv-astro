@@ -15,7 +15,10 @@ const { skills } = Astro.props;
       <p class="name">{ skill.name }</p>
       <div>
         {[1, 2, 3, 4, 5].map(i => (
-          <span class={i > skill.level ? 'track track-fault' : 'track'} />
+          <span class:list={[
+            'track', 
+            {'track-fault': i > skill.level}
+          ]} />
         ))}  
       </div>
     </div>
@@ -26,23 +29,26 @@ const { skills } = Astro.props;
 .skill {
   display: flex;
   align-items: center;
-}
-.name {
-  flex: 1;
-  color: var(--color-light-gray);
-  font-size: 0.9rem;
-  font-weight: 600;
-}
-.track {
-  text-align: right;
-  width: 0.9rem;
-  height: 0.9rem;
-  border-radius: 50%;
-  margin-left: 0.5rem;
-  display: inline-block;
-  background-color: var(--color-gray);
-}
-.track-fault {
-  background-color: var(--color-dark-gray);
+
+  & .name {
+    flex: 1;
+    color: var(--color-light-gray);
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  & .track {
+    text-align: right;
+    width: 0.9rem;
+    height: 0.9rem;
+    border-radius: 50%;
+    margin-left: 0.5rem;
+    display: inline-block;
+    background-color: var(--color-gray);
+
+    + .track-fault {
+      background-color: var(--color-dark-gray);
+    }
+  }
 }
 </style>

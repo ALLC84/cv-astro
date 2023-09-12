@@ -1,0 +1,29 @@
+{
+  "name": "TECNOLOGÍAS",
+  "values": [
+    {
+      "name": "VUE",
+      "level": 4
+    },
+    {
+      "name": "VUEX",
+      "level": 4
+    },
+    {
+      "name": "REACT",
+      "level": 4
+    },
+    {
+      "name": "REACT_NATIVE",
+      "level": 3
+    },
+    {
+      "name": "REDUX",
+      "level": 4
+    },
+    {
+      "name": "GIT - GITHUB",
+      "level": 4
+    }
+  ]
+}

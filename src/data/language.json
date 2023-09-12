@@ -1,0 +1,13 @@
+{
+  "name": "LENGUAJES",
+  "values": [
+    {
+      "name": "ESPAÑOL",
+      "level": 5
+    },
+    {
+      "name": "INGLES",
+      "level": 1
+    }
+  ]
+}

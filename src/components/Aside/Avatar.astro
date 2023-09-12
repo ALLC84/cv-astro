@@ -1,13 +1,13 @@
 ---
 import { Image } from 'astro:assets';
-import localImg from '@assets/images/imgabout.jpg';
+import contactData from '@data/contact.js';
 ---
 
 <section class="wrapper">
   <Image
     class="avatar"
-    src={localImg}
-    alt="Avatar Alejandro Llorente"
+    src={contactData.image}
+    alt={`Avatar ${contactData.name}`}
     width="200"
     height="200"
   />
@@ -22,8 +22,9 @@ import localImg from '@assets/images/imgabout.jpg';
     overflow: hidden;
     width: 200px;
     height: 200px;
-  }
-  .wrapper .avatar {
-    max-width: 100%;
+    
+    & .avatar {
+      max-width: 100%;
+    }
   }
 </style>

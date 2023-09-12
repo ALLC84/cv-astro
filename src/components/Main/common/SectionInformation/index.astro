@@ -97,35 +97,41 @@ const TEXT_BUTTON = {
   margin-bottom: 0.8rem;
   color: var(--black);
   position: relative;
-}
-.left .title {
-  display: flex;
-  align-items: center;
-}
-.title a {
-  color: inherit;
-  font-size: 1rem;
-  font-weight: 600;
-  line-height: 1.2;
-  transition: all 0.3s ease;
-}
-.title a:hover {
-  color: var(--color-button-hover);
-}
-.title span {
-  font-weight: 600;
-  font-size: 1rem;
-}
-.subtitle {
-  font-size: 0.9rem;
-  font-weight: 500;
-  font-style: italic;
-}
 
-.right {
-  color: $black;
-  font-size: 0.8rem;
-  font-weight: 600;
+  & .left {
+    & .title {
+      display: flex;
+      align-items: center;
+
+      & a {
+        color: inherit;
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.2;
+        transition: all 0.3s ease;
+      }
+      & a:hover {
+        color: var(--color-button-hover);
+      }
+
+      & span {
+        font-weight: 600;
+        font-size: 1rem;
+      }
+    }
+
+    & .subtitle {
+      font-size: 0.9rem;
+      font-weight: 500;
+      font-style: italic;
+    }
+  }
+
+  & .right {
+    color: $black;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
 }
 
 .button {

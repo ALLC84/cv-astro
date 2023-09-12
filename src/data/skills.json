@@ -1,0 +1,25 @@
+{
+  "name": "HABILIDADES",
+  "values": [
+    {
+      "name": "HTML",
+      "level": 4
+    },
+    {
+      "name": "CSS",
+      "level": 4
+    },
+    {
+      "name": "SCSS",
+      "level": 3
+    },
+    {
+      "name": "JAVASCRIPT",
+      "level": 4
+    },
+    {
+      "name": "TYPESCRIPT",
+      "level": 3
+    }
+  ]
+}

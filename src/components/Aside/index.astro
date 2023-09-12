@@ -5,82 +5,25 @@ import Avatar from './Avatar.astro';
 import Contact from './Contact.astro';
 import SkillLevel from './SkillLevel.astro';
 
+import skillsData from '@data/skills.json';
+import skillsTechData from '@data/skillsTech.json';
+import languageData from '@data/language.json';
+
 const colorText = '#a0aec0',
   titleMarginTop = 1.8;
 
-const skillsData = [
-  {
-    name: 'HTML',
-    level: 4,
-  },
-  {
-    name: 'CSS',
-    level: 4,
-  },
-  {
-    name: 'SCSS',
-    level: 3,
-  },
-  {
-    name: 'JAVASCRIPT',
-    level: 4,
-  },
-  {
-    name: 'TYPESCRIPT',
-    level: 3,
-  },
-];
-
-const skillsTechData = [
-  {
-    name: 'VUE',
-    level: 4,
-  },
-  {
-    name: 'VUEX',
-    level: 4,
-  },
-  {
-    name: 'REACT',
-    level: 4,
-  },
-  {
-    name: 'REACT_NATIVE',
-    level: 3,
-  },
-  {
-    name: 'REDUX',
-    level: 4,
-  },
-  {
-    name: 'GIT - GITHUB',
-    level: 4,
-  },
-]
-
-const languageData = [
-  {
-    name: 'ESPAÑOL',
-    level: 5,
-  },
-  {
-    name: 'INGLES',
-    level: 1,
-  },
-]
-
 const dataContent = [
   {
-    name: 'HABILIDADES',
-    skills: skillsData,
+    name: skillsData.name,
+    skills: skillsData.values,
   },
   {
-    name: 'TECNOLOGÍAS',
-    skills: skillsTechData,
+    name: skillsTechData.name,
+    skills: skillsTechData.values,
   },
   {
-    name: 'LENGUAJES',
-    skills: languageData,
+    name: languageData.name,
+    skills: languageData.values,
   },
 ];
 ---
