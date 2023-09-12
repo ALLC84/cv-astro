@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import DownloadButton from '@assets/images/download-button.svg';
 import GithubIcon from '@assets/images/github.svg';
+import CV from '@assets/pdf/CV.pdf'
 ---
 
 <section class="actions">
@@ -18,7 +19,7 @@ import GithubIcon from '@assets/images/github.svg';
       height="20"
     />
   </a>
-  <a target="_blanck" rel="noreferrer" download>
+  <a href={CV} target="_blanck" rel="noreferrer" download>
     <Image
       class="img"
       src={DownloadButton}
