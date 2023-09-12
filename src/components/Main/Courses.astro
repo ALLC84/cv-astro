@@ -17,17 +17,25 @@ const { data } = Astro.props;
 const nameSection = 'Cursos'
 ---
 <section>
-  <header>
+  <header class="header-section">
     <TitleSection
       tag="h3"
       text={nameSection}
       size={1.8}
       weight={600}
-      mt={1.5}
     />
+    <PartingLine weight={0.15} />
   </header>
-  <PartingLine weight={0.15} width={20} bg="rgb(49, 130, 206)" />
   <div>
-    <SectionInformation data={data} widthButton={data.length > 3} />
+    <SectionInformation data={data} widthButton={data.length > 5} />
   </div>
 </section>
+
+<style>
+  .header-section {
+    display: flex; 
+    align-items: center; 
+    gap: 20px; 
+    margin-top: 30px;
+  }
+</style>

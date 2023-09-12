@@ -1,5 +1,6 @@
 ---
 import { Image } from 'astro:assets';
+import PartingLine from '@components/PartingLine/index.astro';
 import AstroIcon from '@assets/images/astro.svg'
 import contactData from '@data/contact.js'
 
@@ -19,6 +20,8 @@ const rightSection = {
   ],
 };
 ---
+
+<PartingLine weight={0.01} width={100} mt={1.5} mb={1.5} />
 
 <footer class="footer">
   <div class="leftSection">

@@ -13,19 +13,23 @@ interface Props {
   data: sectionInformationData[];
   widthButton?: Boolean
 };
-
-const { data, widthButton = false } = Astro.props;
+const show = 4;
+const { data, widthButton = data?.length >= show } = Astro.props;
+const random = Math.floor(Math.random() * 10000)
+const base = data[0].title.replace(/\s+/g, '');
+const currentId = random.toString().padStart(10, base);
 const TEXT_BUTTON = {
   showLess: 'Mostrar menos',
   showMore: 'Mostrar mas'
 }
+
 ---
 
 <!-- INFORMATION -->
 {
   data.map((information, index) => (
     <section>
-      <div class:list={['section', 'fadeIn', `section-${data[0].title}`, { 'no-display': index >= 3 }]}>
+      <div class:list={['section', 'fadeIn', `section-${currentId}`, { 'no-display': index >= show }]}>
         <div class="left">
           <h4 class="title">
             { information.url ? 
@@ -60,20 +64,20 @@ const TEXT_BUTTON = {
 <!-- BUTTON -->
 {
   widthButton && (
-  <div id={`button-${data[0].title}`} class="button">
+  <div id={`button-${currentId}`} class="button">
     { TEXT_BUTTON.showMore }
   </div>
   )
 }
 
-<script define:vars={{data, TEXT_BUTTON}}>
-  const button = document.getElementById(`button-${data[0].title}`);
-  const sections = document.querySelectorAll(`.section-${data[0].title}`);
+<script define:vars={{currentId, TEXT_BUTTON, show}}>
+  const button = document.getElementById(`button-${currentId}`);
+  const sections = document.querySelectorAll(`.section-${currentId}`);
   
 
-  const showMore = () =>{
+  const toggleDisplay = () =>{
     sections.forEach((section, index) => {
-      if (index >= 3) {
+      if (index >= show) {
         section.classList.toggle('no-display');
       }
     });
@@ -85,7 +89,7 @@ const TEXT_BUTTON = {
     }
   }
   if ( button ) {
-    button.addEventListener("click", showMore);
+    button.addEventListener("click", toggleDisplay);
   }
 </script>
 

@@ -1,15 +1,9 @@
 ---
 import { Image } from 'astro:assets';
-import contactData from '@data/Contact.js';
+import contactData from '@data/contact.js';
 ---
 
 <ul class="list">
-  <li class="item">
-    <a class="link" href={`tel:+${contactData.call.phone}`}>
-      <Image class="img" src={contactData.call.icon} alt="call icon svg" width="20" height="20" />
-      { contactData.call.title }
-    </a>
-  </li>
   <li class="item">
     <a class="link" href={`mailto:${contactData.mail.email}`}>
       <Image class="img" src={contactData.mail.icon} alt="email icon svg" width="20" height="20" />

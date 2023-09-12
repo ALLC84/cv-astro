@@ -1,7 +1,5 @@
 ---
-// import MediaQueries from '@helpers/MediaQueries'
 import TitleSection from '@components/TitleSection/index.astro';
-import PartingLine from '@components/PartingLine/index.astro';
 
 interface DataContact {
   name: string;
@@ -16,17 +14,16 @@ interface Props {
 const { data } = Astro.props;
 ---
   
-<header class="header">
+<header>
   <TitleSection
+    tag="h2"
     size={2.8}
     weight={800}
     text={data.name}
   />
 
-  <PartingLine weight={0.15} width={20} bg="rgb(49, 130, 206)" />
-
   <TitleSection
-    tag="h2"
+    tag="h1"
     text={data.profession}
     weight={600}
     mt={1}

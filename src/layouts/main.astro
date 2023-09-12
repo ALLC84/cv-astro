@@ -31,8 +31,11 @@ const { title } = Astro.props;
       <aside class="aside">
         <slot name="aside" />
       </aside>
-      <main class="main">
-        <slot name="main" />
+      <main class="right-section">
+        <slot name="header" />
+        <section class="main-content">
+          <slot name="main"/>
+        </section>
         <footer class="footer">
           <slot name="footer" />
         </footer>
@@ -60,10 +63,9 @@ const { title } = Astro.props;
   }
 
   .aside,
-  .main {
+  .right-section {
     padding: var(--padding-content);
   }
-
   .nav {
     min-width: 100%;
     padding: calc(var(--padding-content) / 2) var(--padding-content);
@@ -76,10 +78,16 @@ const { title } = Astro.props;
     background-color: var(--color-bg-sidebar);
   }
 
-  .main {
+  .right-section {
+    display: flex;
+    flex-direction: column;
     flex-grow: 1;
     flex-basis: calc(70% - calc(var(--padding-content) * 4));
     background-color: var(--color-bg-content);
+  }
+
+  .main-content {
+    flex: 1
   }
 
   .footer {
@@ -91,7 +99,7 @@ const { title } = Astro.props;
       border-top-left-radius: var(--layout-border-radius);
       border-bottom-left-radius: var(--layout-border-radius);
     }
-    .main {
+    .right-section {
       border-top-right-radius: var(--layout-border-radius);
       border-bottom-right-radius: var(--layout-border-radius);
     }
